@@ -1,0 +1,195 @@
+%----------------------------------------------------------------------------------------
+%	EXECUTIVE CV — HUGO SOARES (pdfLaTeX, single column + header band)
+%----------------------------------------------------------------------------------------
+\documentclass[10pt,a4paper]{extarticle}
+
+% --- Page geometry -----------------------------------------------------------
+\usepackage[a4paper, left=0.55in, right=0.5in, top=0in, bottom=0.45in]{geometry}
+% --- Encoding & fonts ---------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.08}
+
+% --- Colour palette -----------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{primary}{HTML}{1A365D}    % Deep Navy
+\definecolor{secondary}{HTML}{2B6CB0}  % Slate Blue
+\definecolor{ice}{HTML}{C7D9EF}        % Light blue (on navy)
+\definecolor{accent}{HTML}{E3EAF3}     % Light blue-grey wash
+\definecolor{textdark}{HTML}{2D3748}   % Charcoal
+\definecolor{graylight}{HTML}{718096}  % Cool grey
+\color{textdark}
+
+% --- Packages -----------------------------------------------------------------
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=secondary,
+    urlcolor=secondary,
+    pdftitle={Curriculum Vitae — Hugo Soares},
+    pdfauthor={Hugo Soares},
+}
+
+% --- Hyphenation control -------------------------------------------------------
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% --- List style ----------------------------------------------------------------
+\setlist[itemize]{
+    leftmargin=1.15em,
+    topsep=1.5pt,
+    itemsep=1.6pt,
+    parsep=0pt,
+    partopsep=0pt,
+    label=\textcolor{secondary}{\textbullet},
+    before=\color{textdark},
+}
+
+% ==============================================================================
+%	MACROS
+% ==============================================================================
+% Section heading (uppercase, navy, letterspaced, underlined)
+\newcommand{\cvh}[1]{%
+    \par\vspace{5pt}%
+    \noindent{\color{primary}\large\bfseries\textls[130]{\MakeUppercase{#1}}}\par
+    \vspace{0pt}%
+    \noindent{\color{secondary}\rule{\linewidth}{1pt}}\par
+    \vspace{2pt}%
+}
+
+% Contact separator bullet
+\newcommand{\sep}{{\color{ice}\normalsize\raisebox{0.1ex}{\textbullet}}\hspace{2pt}}
+
+% Project header row: title (+github) left, dates right
+\newcommand{\projhead}[3]{%
+    \noindent
+    \begin{tabular}{@{}>{\bfseries\color{primary}}l@{\extracolsep{\fill}}>{\scriptsize\color{graylight}\raggedleft\arraybackslash}r@{}}
+        #1 & #2%
+    \end{tabular}\par
+    \vspace{0.5pt}%
+    {\scriptsize\color{secondary}\textbf{Stack:} #3}\par
+    \vspace{2pt}%
+}
+
+% ==============================================================================
+%	DOCUMENT START
+% ==============================================================================
+\begin{document}
+\pagestyle{empty}
+
+% ==============================================================================
+%	FULL-BLEED HEADER BAND (navy across full page width, with photo)
+% ==============================================================================
+\begingroup
+\setlength{\fboxsep}{0pt}
+\hypersetup{urlcolor=ice}
+\noindent\makebox[0pt][l]{%
+\hspace*{-0.55in}%
+\colorbox{primary}{%
+\begin{minipage}[c]{\paperwidth}%
+    \vspace{0.22cm}%
+    \hspace*{0.55in}%
+    \begin{minipage}[c]{\dimexpr\paperwidth-0.55in-0.5in-2.9cm-0.5cm\relax}%
+        {\color{white}\fontsize{20}{22}\selectfont\bfseries Hugo Soares}%
+        {\color{ice}\normalsize\bfseries\ |\ Full-Stack Software Engineer}\par
+        \vspace{4pt}
+        {\small\color{white}
+            \faMapMarker\ Braga, Portugal \sep
+            \faEnvelope\ \href{mailto:hugoferreirasoares@gmail.com}{hugoferreirasoares@gmail.com}\par
+            \vspace{2pt}
+            \faLinkedin\ \href{https://www.linkedin.com/in/yhugosoares/}{linkedin.com/in/yhugosoares} \sep
+            \faGithub\ \href{https://github.com/yhugosoares}{github.com/yhugosoares} \sep
+            \faPhone\ +351 934 120 467}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{2.9cm}%
+        \raggedleft
+        \begin{tikzpicture}
+            \begin{scope}
+                \clip (0,0) circle (1.35cm);
+                \node[anchor=center] at (0,0) {\includegraphics[width=2.7cm,height=2.7cm]{square_photo_compressed.jpg}};
+            \end{scope}
+            \draw[white,line width=1.4pt] (0,0) circle (1.35cm);
+        \end{tikzpicture}
+    \end{minipage}%
+    \hspace*{0.5in}%
+    \vspace{0.22cm}%
+\end{minipage}}
+}% close makebox
+\endgroup
+
+\vspace{6pt}
+
+% ==============================================================================
+%	PROFILE SUMMARY
+% ==============================================================================
+\cvh{Profile}
+{\small\color{textdark}
+Informatics Engineering graduate (University of Minho) who designs and ships complete applications end-to-end. Core languages Java and TypeScript, with hands-on experience integrating AI services, Docker, and CI/CD across independently delivered projects on \textbf{Desktop}, \textbf{Web}, and \textbf{Mobile}.}
+
+% ==============================================================================
+%	EDUCATION
+% ==============================================================================
+\cvh{Education}
+\noindent
+\begin{tabular}{@{}>{\bfseries\color{primary}}l@{\extracolsep{\fill}}>{\scriptsize\color{graylight}\raggedleft\arraybackslash}r@{}}
+    B.Sc. in Informatics Engineering | University of Minho & 2023 -- 2026
+\end{tabular}
+
+\begin{itemize}
+    \item Mean Grade: 14/20.
+    \item Relevant coursework: Object-Oriented Programming (Java), Software Analysis \& Testing (JUnit, EvoSuite), Computer Systems Security, Computer Networks, Language Processing.
+\end{itemize}
+
+% ==============================================================================
+%	TECHNICAL SKILLS
+% ==============================================================================
+\cvh{Technical Skills}
+\noindent
+\begin{tabular}{@{}>{\color{secondary}\small\bfseries}p{3.3cm}@{}>{\small\color{textdark}\raggedright\arraybackslash}p{\dimexpr\linewidth-3.3cm\relax}@{}}
+    Languages:        & Java, TypeScript, JavaScript, Python, Rust, C\\[2.5pt]
+    Frameworks:       & React, Node.js, Express, Tauri\\[2.5pt]
+    Databases/Tools:  & PostgreSQL, Supabase, Git, Linux/Bash\\[2.5pt]
+    Cloud \& DevOps:  & Docker, Docker Compose, GitHub Actions (CI/CD)\\[2.5pt]
+    AI \& LLMs:       & DeepSeek API, Ollama, Local LLMs, Prompt Engineering\\[2.5pt]
+    Testing:          & JUnit, EvoSuite, Hypothesis, Property-Based Testing\\[2.5pt]
+    Spoken:           & Portuguese (Native), English (Fluent)
+\end{tabular}
+
+% ==============================================================================
+%	PROJECTS
+% ==============================================================================
+\cvh{Projects}
+
+\projhead{Reddit Story Pipeline \href{https://github.com/yHugoSoares/reddit-tiktok-pipeline}{\ \footnotesize\faGithub}}{2025 -- August 2026}{Python, DeepSeek API, Docker, Automation}
+\begin{itemize}
+    \item Designed and delivered an end-to-end automated pipeline that turns Reddit stories into narrated, subtitled vertical videos, integrating the DeepSeek LLM API for rewriting, TTS voiceover, and subtitle rendering.
+    \item Engineered a containerized architecture with Docker Compose, persistent session management, and multi-platform publishing to TikTok, Instagram, and YouTube.
+    \item Built in reliability from day one: state persistence, post deduplication, dry-run mode for staged rollout, and cron/Ofelia scheduling for up to 3 posts per day.
+\end{itemize}
+
+\projhead{Zenyth IDE \href{https://github.com/yHugoSoares/Zenyth-IDE}{\ \footnotesize\faGithub}}{November 2025 -- Present}{React, TypeScript, Tauri, Rust, Ollama}
+\begin{itemize}
+    \item Developed a native desktop IDE that streams terminal I/O bidirectionally with zero data loss, enabling real-time code execution from a Tauri-wrapped React interface.
+    \item Designed a Rust proxy for local LLM inference (Ollama) with sub-100ms first-token latency, handling backpressure, cancellation, and graceful error recovery.
+    \item Architected the React-to-Rust IPC bridge that ports a web-based editor into a fully native desktop application.
+\end{itemize}
+
+\projhead{VencordMobile \href{https://github.com/yHugoSoares/VencordMobile}{\ \footnotesize\faGithub}}{2025 -- Present}{Dart (Flutter), JavaScript, WebView, CI/CD}
+\begin{itemize}
+    \item Shipped an Android client that loads Discord's mobile web app and injects the Vencord plugin bundle (155+ plugins), enabling features unavailable in any other mobile client.
+    \item Engineered a Flutter-to-JavaScript bridge via postMessage for bidirectional native-web communication with synchronized state.
+    \item Automated delivery end-to-end: esbuild bundling of 155+ plugins into a single IIFE, with GitHub Actions producing signed APKs on each release tag.
+\end{itemize}
+
+\end{document}
