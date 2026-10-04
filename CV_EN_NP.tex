@@ -1,5 +1,5 @@
 %----------------------------------------------------------------------------------------
-%	EXECUTIVE CV — HUGO SOARES (pdfLaTeX, single column + header band)
+%	EXECUTIVE CV — HUGO SOARES (pdfLaTeX, single column + header band, no photo)
 %----------------------------------------------------------------------------------------
 \documentclass[10pt,a4paper]{extarticle}
 
@@ -93,7 +93,7 @@
 \pagestyle{empty}
 
 % ==============================================================================
-%	FULL-BLEED HEADER BAND (navy across full page width, with photo)
+%	FULL-BLEED HEADER BAND (navy across full page width, no photo)
 % ==============================================================================
 \begingroup
 \setlength{\fboxsep}{0pt}
@@ -102,38 +102,27 @@
 \hspace*{-0.55in}%
 \colorbox{primary}{%
 \begin{minipage}[c]{\paperwidth}%
-    \vspace{0.14cm}%
+    \vspace{0.30cm}%
     \hspace*{0.55in}%
-    \begin{minipage}[c]{\dimexpr\paperwidth-0.55in-0.5in-2.6cm-0.5cm\relax}%
+    \begin{minipage}[c]{\dimexpr\paperwidth-0.55in-0.5in\relax}%
         {\color{white}\fontsize{20}{22}\selectfont\bfseries Hugo Soares}%
         {\color{ice}\normalsize\bfseries\ |\ Software Engineering Graduate}\par
-        \vspace{3pt}
+        \vspace{4pt}
         {\small\color{white}
             \faMapMarker\ Braga, Portugal \sep
             \faEnvelope\ \href{mailto:hugoferreirasoares+work@gmail.com}{hugoferreirasoares+work@gmail.com}\par
-            \vspace{1pt}
+            \vspace{2pt}
             \faLinkedin\ \href{https://www.linkedin.com/in/yhugosoares/}{linkedin.com/in/yhugosoares} \sep
             \faGithub\ \href{https://github.com/yhugosoares}{github.com/yhugosoares} \sep
             \faPhone\ +351 934 120 467}
     \end{minipage}%
-    \hfill
-    \begin{minipage}[c]{2.6cm}%
-        \raggedleft
-        \begin{tikzpicture}
-            \begin{scope}
-                \clip (0,0) circle (1.2cm);
-                \node[anchor=center] at (0,0) {\includegraphics[width=2.4cm,height=2.4cm]{square_photo_compressed.jpg}};
-            \end{scope}
-            \draw[white,line width=1.4pt] (0,0) circle (1.2cm);
-        \end{tikzpicture}
-    \end{minipage}%
     \hspace*{0.5in}%
-    \vspace{0.14cm}%
+    \vspace{0.30cm}%
 \end{minipage}}
 }% close makebox
 \endgroup
 
-\vspace{3pt}
+\vspace{6pt}
 
 % ==============================================================================
 %	SUMMARY

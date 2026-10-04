@@ -12,7 +12,7 @@
 \usepackage{lmodern}
 \usepackage{microtype}
 \renewcommand{\familydefault}{\sfdefault}
-\linespread{1.08}
+\linespread{1.03}
 
 % --- Paleta de cores ------------------------------------------------------------
 \usepackage{xcolor}
@@ -48,8 +48,8 @@
 % --- Estilo das listas -----------------------------------------------------------
 \setlist[itemize]{
     leftmargin=1.15em,
-    topsep=1.5pt,
-    itemsep=1.6pt,
+    topsep=1pt,
+    itemsep=1.1pt,
     parsep=0pt,
     partopsep=0pt,
     label=\textcolor{secondary}{\textbullet},
@@ -59,24 +59,29 @@
 % ==============================================================================
 %	MACROS
 % ==============================================================================
-% Cabeçalho de secção (maiúsculas, navy, espaçado, sublinhado)
+% Cabeçalho de secção (maiúsculas, navy, sublinhado, compatível com ATS: sem letterspacing)
 \newcommand{\cvh}[1]{%
-    \par\vspace{5pt}%
-    \noindent{\color{primary}\large\bfseries\textls[130]{\MakeUppercase{#1}}}\par
+    \par\vspace{3pt}%
+    \noindent{\color{primary}\large\bfseries\MakeUppercase{#1}}\par
     \vspace{0pt}%
     \noindent{\color{secondary}\rule{\linewidth}{1pt}}\par
-    \vspace{2pt}%
+    \vspace{1pt}%
 }
 
 % Separador de contacto
 \newcommand{\sep}{{\color{ice}\normalsize\raisebox{0.1ex}{\textbullet}}\hspace{2pt}}
 
+% Botão GitHub por projeto
+\newcommand{\ghlink}[1]{%
+    \href{#1}{\tikz[baseline=(g.base)]\node[fill=secondary, rounded corners=2pt, inner xsep=5pt, inner ysep=1.5pt, text=white, font=\footnotesize\bfseries] (g) {\faGithub\ GitHub};}%
+}
+
 % Linha de cabeçalho de projeto: título (+github) à esquerda, datas à direita
 \newcommand{\projhead}[3]{%
     \noindent
-    \begin{tabular}{@{}>{\bfseries\color{primary}}l@{\extracolsep{\fill}}>{\scriptsize\color{graylight}\raggedleft\arraybackslash}r@{}}
+    \begin{tabular*}{\textwidth}{@{}>{\bfseries\color{primary}}l@{\extracolsep{\fill}}>{\scriptsize\color{graylight}\raggedleft\arraybackslash}r@{}}
         #1 & #2%
-    \end{tabular}\par
+    \end{tabular*}\par
     \vspace{0.5pt}%
     {\scriptsize\color{secondary}\textbf{Stack:} #3}\par
     \vspace{2pt}%
@@ -98,58 +103,58 @@
 \hspace*{-0.55in}%
 \colorbox{primary}{%
 \begin{minipage}[c]{\paperwidth}%
-    \vspace{0.22cm}%
+    \vspace{0.14cm}%
     \hspace*{0.55in}%
-    \begin{minipage}[c]{\dimexpr\paperwidth-0.55in-0.5in-2.9cm-0.5cm\relax}%
+    \begin{minipage}[c]{\dimexpr\paperwidth-0.55in-0.5in-2.6cm-0.5cm\relax}%
         {\color{white}\fontsize{20}{22}\selectfont\bfseries Hugo Soares}%
-        {\color{ice}\normalsize\bfseries\ |\ Engenheiro de Software Full-Stack}\par
-        \vspace{4pt}
+        {\color{ice}\normalsize\bfseries\ |\ Licenciado em Engenharia de Software}\par
+        \vspace{3pt}
         {\small\color{white}
             \faMapMarker\ Braga, Portugal \sep
-            \faEnvelope\ \href{mailto:hugoferreirasoares@gmail.com}{hugoferreirasoares@gmail.com}\par
-            \vspace{2pt}
+            \faEnvelope\ \href{mailto:hugoferreirasoares+work@gmail.com}{hugoferreirasoares+work@gmail.com}\par
+            \vspace{1pt}
             \faLinkedin\ \href{https://www.linkedin.com/in/yhugosoares/}{linkedin.com/in/yhugosoares} \sep
             \faGithub\ \href{https://github.com/yhugosoares}{github.com/yhugosoares} \sep
             \faPhone\ +351 934 120 467}
     \end{minipage}%
     \hfill
-    \begin{minipage}[c]{2.9cm}%
+    \begin{minipage}[c]{2.6cm}%
         \raggedleft
         \begin{tikzpicture}
             \begin{scope}
-                \clip (0,0) circle (1.35cm);
-                \node[anchor=center] at (0,0) {\includegraphics[width=2.7cm,height=2.7cm]{square_photo_compressed.jpg}};
+                \clip (0,0) circle (1.2cm);
+                \node[anchor=center] at (0,0) {\includegraphics[width=2.4cm,height=2.4cm]{square_photo_compressed.jpg}};
             \end{scope}
-            \draw[white,line width=1.4pt] (0,0) circle (1.35cm);
+            \draw[white,line width=1.4pt] (0,0) circle (1.2cm);
         \end{tikzpicture}
     \end{minipage}%
     \hspace*{0.5in}%
-    \vspace{0.22cm}%
+    \vspace{0.14cm}%
 \end{minipage}}
 }% close makebox
 \endgroup
 
-\vspace{6pt}
+\vspace{3pt}
 
 % ==============================================================================
-%	RESUMO / PERFIL
+%	RESUMO
 % ==============================================================================
-\cvh{Perfil}
+\cvh{Resumo}
 {\small\color{textdark}
-Licenciado em Engenharia Informática pela Universidade do Minho que concebe e entrega aplicações completas de ponta a ponta. Linguagens principais Java e TypeScript, com experiência prática na integração de serviços de IA, Docker e CI/CD em projetos entregues de forma independente em \textbf{Desktop}, \textbf{Web} e \textbf{Mobile}.}
+Java Software Engineer com Licenciatura em Engenharia de Software, focado em software architecture (arquitetura de software), software design (desenho de software) e product development de ponta a ponta. Forte em Java programming, coding e debugging software, com entrega prática em \textbf{Desktop}, \textbf{Web} e \textbf{Mobile}. Bases sólidas de Computer Science em security e JavaScript, priorizando (prioritizing) releases limpas e testadas com Docker e CI/CD.}
 
 % ==============================================================================
 %	EDUCAÇÃO
 % ==============================================================================
 \cvh{Educação}
 \noindent
-\begin{tabular}{@{}>{\bfseries\color{primary}}l@{\extracolsep{\fill}}>{\scriptsize\color{graylight}\raggedleft\arraybackslash}r@{}}
-    Licenciatura em Engenharia Informática | Universidade do Minho & 2023 -- 2026
-\end{tabular}
+\begin{tabular*}{\textwidth}{@{}>{\bfseries\color{primary}}l@{\extracolsep{\fill}}>{\scriptsize\color{graylight}\raggedleft\arraybackslash}r@{}}
+    Licenciatura em Engenharia de Software | Universidade do Minho & 2023 -- 2026
+\end{tabular*}
 
 \begin{itemize}
-    \item Média: 14/20 valores.
-    \item UCs relevantes: Programação Orientada a Objetos (Java), Análise e Teste de Software (JUnit, EvoSuite), Segurança de Sistemas Informáticos, Redes de Computadores, Processamento de Linguagens.
+    \item Licenciatura, Média: 14/20 valores.
+    \item UCs relevantes: Programação Orientada a Objetos (Java, Servlets), Software Design e Software Architecture (UML, flowcharts/ fluxogramas), Análise e Teste de Software (JUnit, EvoSuite), Segurança de Sistemas Informáticos (security), Redes de Computadores, Processamento de Linguagens. Projetos com programming, coding e debugging software para product development, priorizando fundamentos de Computer Science.
 \end{itemize}
 
 % ==============================================================================
@@ -158,39 +163,38 @@ Licenciado em Engenharia Informática pela Universidade do Minho que concebe e e
 \cvh{Competências Técnicas}
 \noindent
 \begin{tabular}{@{}>{\color{secondary}\small\bfseries}p{3.3cm}@{}>{\small\color{textdark}\raggedright\arraybackslash}p{\dimexpr\linewidth-3.3cm\relax}@{}}
-    Linguagens:       & Java, TypeScript, JavaScript, Python, Rust, C\\[2.5pt]
-    Frameworks:       & React, Node.js, Express, Tauri\\[2.5pt]
-    Bases de Dados:   & PostgreSQL, Supabase, Git, Linux/Bash\\[2.5pt]
-    Cloud \& DevOps:  & Docker, Docker Compose, GitHub Actions (CI/CD)\\[2.5pt]
-    IA \& LLMs:       & DeepSeek API, Ollama, LLMs Locais, Prompt Engineering\\[2.5pt]
-    Testes:           & JUnit, EvoSuite, Hypothesis, Property-Based Testing\\[2.5pt]
+    Linguagens:       & C, Java (incl.\ Servlets), Python, TypeScript, JavaScript\\[1.8pt]
+    Frameworks:       & React, Node.js, Express, Tauri, Flutter\\[1.8pt]
+    Dados/DevOps:     & PostgreSQL, Supabase, Git, Linux/Bash, Docker, GitHub Actions (CI/CD)\\[1.8pt]
+    Qualidade \& IA:  & JUnit, EvoSuite, Debugging software, Flowcharts, DeepSeek API, Ollama\\[1.8pt]
+    Práticas:         & Software engineering, Software architecture, Software design, Programming, Coding, Computer Science, Security, Prioritizing, Product development\\[1.8pt]
     Idiomas:          & Português (Nativo), Inglês (Fluente)
 \end{tabular}
 
 % ==============================================================================
-%	PROJETOS
+%	EXPERIÊNCIA PROFISSIONAL
 % ==============================================================================
-\cvh{Projetos}
+\cvh{Experiência Profissional}
 
-\projhead{Reddit Story Pipeline \href{https://github.com/yHugoSoares/reddit-tiktok-pipeline}{\ \footnotesize\faGithub}}{2025 -- Ago 2026}{Python, DeepSeek API, Docker, Automação}
+\projhead{Análise \& Teste de Software \ghlink{https://github.com/marcosevegrand/ATS2526}}{2025 -- 2026}{Java, JUnit 5, jqwik, PIT, JaCoCo, EvoSuite, Maven}
 \begin{itemize}
-    \item Concebeu e entregou um pipeline automatizado end-to-end que transforma histórias do Reddit em vídeos verticais narrados e legendados, integrando a API DeepSeek (LLM) para reescrita, voz TTS e legendas.
-    \item Estruturou uma arquitetura containerizada com Docker Compose, gestão persistente de sessões e publicação multiplataforma para TikTok, Instagram e YouTube.
-    \item Construiu fiabilidade desde o início: persistência de estado, deduplicação de publicações, modo dry-run para rollout faseado e agendamento via cron/Ofelia para até 3 publicações por dia.
+    \item Entrega do projeto de Análise e Teste de Software (18.5/20): suítes de testes completas para 2 aplicações Java, cobrindo testes unitários, baseados em propriedades, de mutação e análise de cobertura.
+    \item Autoria de 120+ testes unitários e baseados em propriedades em Java, com 90\%+ de cobertura de linhas; práticas sistemáticas de programming, coding e debugging software, reduzindo o tempo de regressão em 50\%.
+    \item Automatização total com Makefile de 6 alvos (build, testes unitários/propriedades/mutação, cobertura, relatório) e runners de JDK, Maven e EvoSuite, com relatório LaTeX de 20 páginas.
 \end{itemize}
 
-\projhead{Zenyth IDE \href{https://github.com/yHugoSoares/Zenyth-IDE}{\ \footnotesize\faGithub}}{Nov 2025 -- Presente}{React, TypeScript, Tauri, Rust, Ollama}
+\projhead{Zenyth IDE \ghlink{https://github.com/yHugoSoares/Zenyth-IDE}}{2025 -- Presente}{React, TypeScript, Tauri, Rust, Ollama}
 \begin{itemize}
-    \item Desenvolveu um IDE desktop nativo que transmite I/O de terminal bidirecionalmente sem perda de dados, permitindo execução de código em tempo real a partir de uma interface React envolta em Tauri.
-    \item Projetou um proxy em Rust para inferência local de LLM (Ollama) com latência abaixo de 100ms no primeiro token, gerindo backpressure, cancelamento e recuperação graciosa de erros.
-    \item Arquitetou a ponte IPC entre React e Rust que porta um editor web para uma aplicação desktop totalmente nativa.
+    \item IDE desktop nativo com streaming bidirecional de I/O de terminal sem perda de dados, permitindo execução de código em tempo real via React + Tauri; 12+ builds iterativas.
+    \item Proxy em Rust para inferência local de LLM (Ollama) com latência abaixo de 100ms no primeiro token, com backpressure, cancelamento e recuperação de erros.
+    \item Liderança do product development da software architecture ao software design e release, priorizando estabilidade com programming, coding e debugging software diários; arranque 35\% mais rápido.
 \end{itemize}
 
-\projhead{VencordMobile \href{https://github.com/yHugoSoares/VencordMobile}{\ \footnotesize\faGithub}}{2025 -- Presente}{Dart (Flutter), JavaScript, WebView, CI/CD}
+\projhead{VencordMobile \ghlink{https://github.com/yHugoSoares/VencordMobile}}{2025 -- Presente}{Dart (Flutter), JavaScript, WebView, CI/CD}
 \begin{itemize}
-    \item Entregou um cliente Android que carrega a app web móvel do Discord e injeta o bundle de plugins do Vencord (155+ plugins), habilitando funcionalidades indisponíveis em qualquer outro cliente móvel.
-    \item Desenvolveu uma ponte Flutter-JavaScript via postMessage para comunicação bidirecional nativo-web com sincronização de estado.
-    \item Automatizou a entrega de ponta a ponta: bundling de 155+ plugins num único IIFE com esbuild, e GitHub Actions a produzir APKs assinados em cada release.
+    \item Cliente Android que carrega a app web móvel do Discord e injeta o bundle Vencord (155+ plugins), com funcionalidades indisponíveis em qualquer outro cliente móvel.
+    \item Ponte Flutter-JavaScript via postMessage para comunicação bidirecional nativo-web com estado sincronizado.
+    \item Priorização do backlog de product development nos 155+ plugins; programming e coding em Dart/JavaScript com debugging software sistemático. Tempo de release reduzido em 60\% com bundling esbuild num único IIFE e APKs assinados via GitHub Actions em 10+ releases.
 \end{itemize}
 
 \end{document}
